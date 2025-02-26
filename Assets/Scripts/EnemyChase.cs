@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyChase : MonoBehaviour
 {
@@ -40,6 +39,14 @@ public class EnemyChase : MonoBehaviour
         if (lookDirection != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(lookDirection, Vector3.up);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player")) 
+        {
+            SceneManager.LoadScene("SampleScene");
         }
     }
 }
