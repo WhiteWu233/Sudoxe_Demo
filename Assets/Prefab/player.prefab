@@ -152,6 +152,8 @@ MonoBehaviour:
   jumpHeight: 1.2
   gravity: 20
   airControl: 10
+  runSound: {fileID: 8300000, guid: 849eed97452f6b9448ce68d150e37491, type: 3}
+  jumpSound: {fileID: 8300000, guid: b7fde00944e59434eb14f993469f4766, type: 3}
 --- !u!1 &8684938096415246459
 GameObject:
   m_ObjectHideFlags: 0

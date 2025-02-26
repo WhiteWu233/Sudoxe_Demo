@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
         bgmAudioSource.clip = bgmClip;
         bgmAudioSource.loop = true;
         bgmAudioSource.playOnAwake = false;
-        bgmAudioSource.volume = 0.5f; 
+        bgmAudioSource.volume = 0.1f; 
 
         if (!bgmAudioSource.isPlaying)
         {
