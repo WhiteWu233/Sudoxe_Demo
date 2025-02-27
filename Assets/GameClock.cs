@@ -25,12 +25,12 @@ public class GameClock : MonoBehaviour
         while (timer >= 60f) // 允许累积时间，确保时间不会跳回
         {
             timer -= 60f;
-            minute++;
+            MinuteAdvanced();
 
             if (minute >= 60)
             {
                 minute = 0;
-                hour++;
+                HourAdvanced();
 
                 if (hour >= 24)
                 {
@@ -70,36 +70,22 @@ public class GameClock : MonoBehaviour
         return minute;
     }
 
-    public void AdvanceTime(float hours)
+    public void AdvanceTime()
     {
-        int totalMinutes = Mathf.FloorToInt(hours * 60);
-        minute += totalMinutes;
 
-        while (minute >= 60)
-        {
-            minute -= 60;
-            hour++;
-
-            if (hour >= 24)
-            {
-                hour = 6; // 确保时间不会超出24小时
-                day++;
-
-                if (day > 30)
-                {
-                    day = 1;
-                    month++;
-
-                    if (month > 12)
-                    {
-                        month = 1;
-                        year++;
-                    }
-                }
-            }
-        }
-
-        timer = 0f; // **关键修改：避免 `Update()` 立即覆盖跳转后的时间**
+        Debug.Log("Time Advanced is Working");
+        
         UpdateClockText();
+        timer = 0f;
+    }
+
+    public void HourAdvanced()
+    {
+        hour++;
+    }
+
+    public void MinuteAdvanced()
+    {
+        minute++;
     }
 }

@@ -35,10 +35,12 @@ public class InteractionManager : MonoBehaviour
         // 按 F 键进行时间跳转
         if (canInteract && Input.GetKeyDown(KeyCode.F))
         {
-            gameClock.AdvanceTime(1.5f);  // 跳转 1.5 小时
+            gameClock.AdvanceTime();  // 跳转 1.5 小时
             hintText.gameObject.SetActive(false);  // 按下 F 键后隐藏提示文本
             hintStartTime = -1f;  // 交互完成，清除提示时间
             canInteract = false;  // 交互无效，直到下次触发
+            Debug.Log("F is working");
+            
         }
     }
 
@@ -47,7 +49,7 @@ public class InteractionManager : MonoBehaviour
         int currentHour = gameClock.GetCurrentHour();
         int currentMinute = gameClock.GetCurrentMinute();
 
-        if ((currentHour == 9 && currentMinute == 0) ||
+        if ((currentHour == 8 && currentMinute == 0) ||
             (currentHour == 13 && currentMinute == 0) ||
             (currentHour == 15 && currentMinute == 0))
         {
@@ -61,5 +63,6 @@ public class InteractionManager : MonoBehaviour
         hintText.gameObject.SetActive(true);
         hintStartTime = gameClock.GetCurrentHour() * 60 + gameClock.GetCurrentMinute();
         canInteract = true; // 允许交互
+        Debug.Log("Hint is working");
     }
 }
