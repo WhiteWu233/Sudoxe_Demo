@@ -2,20 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Clock : MonoBehaviour
 {
     private float timeSpend = 0;
-    private int hour = 8;
-    private int minutes = 0;
+    public int day = 4;
+    public int month = 1;
+    public int year = 2024;
+    public int hour = 8; // initial hour set to 8
+    public int minutes = 0;
     private bool check = false;
     public TextMeshProUGUI time;
     public float timeSpeed;
+    public bool isLoading;
     // Start is called before the first frame update
     void Start()
     {
-       
 
+        isLoading = false;
     }
 
     // Update is called once per frame
@@ -24,7 +29,7 @@ public class Clock : MonoBehaviour
         StartCoroutine(Timer());
 
      
-        time.text = $"{hour:D2}:{minutes:D2}";
+        time.text = $"{year:D2}/{month:D2}/{day:D2} {hour:D2}:{minutes:D2}";
     }
 
     IEnumerator Timer()
@@ -34,7 +39,11 @@ public class Clock : MonoBehaviour
             timeSpend += Time.deltaTime * timeSpeed;
             hourCheck();
             minutes = (int)timeSpend;
-            yield return new WaitForSeconds(hour);
+            if (isLoading)
+            {
+                yield return new WaitForSeconds(1.2f);
+            }
+           
         }
     }
 
@@ -47,8 +56,36 @@ public class Clock : MonoBehaviour
         }
     }
 
-    public void hourAdvanced()
+    void dayCheck()
+    {
+        if (hour == 24)
+        {
+            day++;
+            hour = 8;
+        }
+    }
+
+    void monthCheck()
+    {
+        if (day == 31)
+        {
+            month++;
+            hour = 8;
+        }
+    }
+
+    void yearCheck()
+    {
+        if (month == 12)
+        {
+            year++;
+            month = 1;
+        }
+    }
+
+    public void hourAdvanced() // for the class system
     {
         hour++;
+        isLoading = true;
     }
 }
