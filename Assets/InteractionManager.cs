@@ -34,7 +34,7 @@ public class InteractionManager : MonoBehaviour
             if (trigger.isEntered && Input.GetKeyDown(KeyCode.F))
             {
                 clock.hourAdvanced();
-                clock.isLoading = false;
+
             }
         }
 

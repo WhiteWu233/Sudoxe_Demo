@@ -15,12 +15,10 @@ public class Clock : MonoBehaviour
     private bool check = false;
     public TextMeshProUGUI time;
     public float timeSpeed;
-    public bool isLoading;
     // Start is called before the first frame update
     void Start()
     {
 
-        isLoading = false;
     }
 
     // Update is called once per frame
@@ -39,10 +37,9 @@ public class Clock : MonoBehaviour
             timeSpend += Time.deltaTime * timeSpeed;
             hourCheck();
             minutes = (int)timeSpend;
-            if (isLoading)
-            {
-                yield return new WaitForSeconds(1.2f);
-            }
+
+            yield return new WaitForSeconds(1.2f);
+
            
         }
     }
@@ -85,7 +82,6 @@ public class Clock : MonoBehaviour
 
     public void hourAdvanced() // for the class system
     {
-        hour++;
-        isLoading = true;
+        timeSpend = Mathf.Lerp(timeSpend, 60, 0.5f);
     }
 }
