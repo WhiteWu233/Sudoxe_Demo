@@ -6,6 +6,7 @@ public class InteractionManager : MonoBehaviour
     public TextMeshProUGUI hintText;  // 提示文本
     private Clock clock;
     private bool canInteract = false; // 是否可以进行交互
+    public bool isLoading;
     private Schedule_Manager schedule_manager;
     private ClassroomTrigger trigger;
     private int timeSum;
@@ -14,6 +15,7 @@ public class InteractionManager : MonoBehaviour
 
     private void Start()
     {
+        isLoading = false;
         trigger = FindObjectOfType<ClassroomTrigger>();
         schedule_manager = FindObjectOfType<Schedule_Manager>();
         clock = FindObjectOfType<Clock>();
@@ -33,8 +35,8 @@ public class InteractionManager : MonoBehaviour
 
             if (trigger.isEntered && Input.GetKeyDown(KeyCode.F))
             {
-                clock.hourAdvanced();
-
+                isLoading = true;
+              
             }
         }
 
@@ -57,7 +59,12 @@ public class InteractionManager : MonoBehaviour
     {
         if (Mathf.Abs(timeSum - classTimeSum01) <= 15)
         {
-            canInteract = true;
+            if (trigger.isEntered)
+            {
+                canInteract = true;
+            }
+
+            
 
         }
 

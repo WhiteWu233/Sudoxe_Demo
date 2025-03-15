@@ -12,22 +12,28 @@ public class Clock : MonoBehaviour
     public int year = 2024;
     public int hour = 8; // initial hour set to 8
     public int minutes = 0;
-    private bool check = false;
+    public bool check = false;
     public TextMeshProUGUI time;
     public float timeSpeed;
+    private InteractionManager manager;
     // Start is called before the first frame update
     void Start()
     {
-
+        manager = FindObjectOfType<InteractionManager>();
+        StartCoroutine(Timer());
     }
 
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(Timer());
-
-     
+ 
         time.text = $"{year:D2}/{month:D2}/{day:D2} {hour:D2}:{minutes:D2}";
+
+        if (manager.isLoading)
+        {
+            StopCoroutine(Timer());
+        }
+
     }
 
     IEnumerator Timer()
@@ -36,9 +42,12 @@ public class Clock : MonoBehaviour
         {
             timeSpend += Time.deltaTime * timeSpeed;
             hourCheck();
+            dayCheck();
+            monthCheck();
+            yearCheck();
             minutes = (int)timeSpend;
 
-            yield return new WaitForSeconds(1.2f);
+            yield return new WaitForSeconds(0f);
 
            
         }
@@ -82,6 +91,6 @@ public class Clock : MonoBehaviour
 
     public void hourAdvanced() // for the class system
     {
-        timeSpend = Mathf.Lerp(timeSpend, 60, 0.5f);
+        hour++;
     }
 }
