@@ -23173,7 +23173,6 @@ MonoBehaviour:
   minutes: 0
   time: {fileID: 3082078}
   timeSpeed: 5
-  isLoading: 0
 --- !u!43 &342637986
 Mesh:
   m_ObjectHideFlags: 0
@@ -62642,11 +62641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5385359831844493846, guid: 2c6159a0ab04c034d86916a4fba54ec1,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1766194063}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8684938096415246459, guid: 2c6159a0ab04c034d86916a4fba54ec1,
         type: 3}
@@ -62657,12 +62652,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1055998120}
   m_SourcePrefab: {fileID: 100100000, guid: 2c6159a0ab04c034d86916a4fba54ec1, type: 3}
---- !u!4 &1086290948 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5385359831844493846, guid: 2c6159a0ab04c034d86916a4fba54ec1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1086290947}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1087608953
 Mesh:
   m_ObjectHideFlags: 0
@@ -98440,37 +98429,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1766194062
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1766194063}
-  m_Layer: 0
-  m_Name: Firepoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1766194063
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766194062}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.473, y: 0.24, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1086290948}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1769326879
 Mesh:
   m_ObjectHideFlags: 0
@@ -110638,7 +110596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa999f7c5a6abd47823ebaf601a84b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEntered: 0
 --- !u!43 &1985908674
 Mesh:
   m_ObjectHideFlags: 0
