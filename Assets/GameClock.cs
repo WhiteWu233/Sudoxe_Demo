@@ -3,7 +3,7 @@ using TMPro;
 
 public class GameClock : MonoBehaviour
 {
-    public TextMeshProUGUI clockText;
+    public TextMeshProUGUI clockText; 
     private int year = 2025;
     private int month = 1;
     private int day = 4;
@@ -12,6 +12,8 @@ public class GameClock : MonoBehaviour
 
     private float gameTimeSpeed = 200f;
     private float timer = 0f;
+
+    private bool isNewDay = false;
 
     void Start()
     {
@@ -22,7 +24,7 @@ public class GameClock : MonoBehaviour
     {
         timer += Time.deltaTime * gameTimeSpeed;
 
-        while (timer >= 60f) // 允许累积时间，确保时间不会跳回
+        while (timer >= 60f) 
         {
             timer -= 60f;
             minute++;
@@ -34,7 +36,7 @@ public class GameClock : MonoBehaviour
 
                 if (hour >= 24)
                 {
-                    hour = 6; // 按你的逻辑，每天从早上6点开始
+                    hour = 6; 
                     day++;
 
                     if (day > 30)
@@ -48,11 +50,24 @@ public class GameClock : MonoBehaviour
                             year++;
                         }
                     }
+
+                    
+                    if (hour == 8)
+                    {
+                        isNewDay = true;
+                    }
                 }
             }
         }
 
         UpdateClockText();
+
+       
+        if (isNewDay)
+        {
+            isNewDay = false; 
+            OnNewDay(); 
+        }
     }
 
     void UpdateClockText()
@@ -82,7 +97,7 @@ public class GameClock : MonoBehaviour
 
             if (hour >= 24)
             {
-                hour = 6; // 确保时间不会超出24小时
+                hour = 6; 
                 day++;
 
                 if (day > 30)
@@ -99,7 +114,14 @@ public class GameClock : MonoBehaviour
             }
         }
 
-        timer = 0f; // **关键修改：避免 `Update()` 立即覆盖跳转后的时间**
+        timer = 0f; 
         UpdateClockText();
+    }
+
+    
+    private void OnNewDay()
+    {
+        
+        DailyTaskManager.Instance.UpdateDailyTasks();
     }
 }

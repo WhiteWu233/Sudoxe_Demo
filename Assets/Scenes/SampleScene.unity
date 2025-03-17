@@ -5197,6 +5197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hintText: {fileID: 963349062}
+  isLoading: 0
 --- !u!4 &50544970
 Transform:
   m_ObjectHideFlags: 0
@@ -23171,6 +23172,7 @@ MonoBehaviour:
   year: 2024
   hour: 8
   minutes: 0
+  check: 0
   time: {fileID: 3082078}
   timeSpeed: 5
 --- !u!43 &342637986
@@ -56363,6 +56365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 937180668}
   - component: {fileID: 937180669}
+  - component: {fileID: 937180670}
   m_Layer: 0
   m_Name: TaskContainer
   m_TagString: Untagged
@@ -56418,6 +56421,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &937180670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937180667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f248aeb33a5a745bea8ad4ef699f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  task1Text: {fileID: 2046331332}
+  task2Text: {fileID: 1375965600}
+  task3Text: {fileID: 2062572562}
 --- !u!43 &941397273
 Mesh:
   m_ObjectHideFlags: 0
@@ -81012,7 +81030,7 @@ GameObject:
   - component: {fileID: 1375965601}
   - component: {fileID: 1375965600}
   m_Layer: 0
-  m_Name: TaskItem (1)
+  m_Name: Task2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110596,6 +110614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa999f7c5a6abd47823ebaf601a84b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEntered: 0
 --- !u!43 &1985908674
 Mesh:
   m_ObjectHideFlags: 0
@@ -114165,7 +114184,7 @@ GameObject:
   - component: {fileID: 2046331333}
   - component: {fileID: 2046331332}
   m_Layer: 0
-  m_Name: TaskItem
+  m_Name: Task1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114210,9 +114229,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Class in classroom 2 at 9am
-
-'
+  m_text: Class in classroom 2 at 9am
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -114984,7 +115001,7 @@ GameObject:
   - component: {fileID: 2062572563}
   - component: {fileID: 2062572562}
   m_Layer: 0
-  m_Name: TaskItem (2)
+  m_Name: Task3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
