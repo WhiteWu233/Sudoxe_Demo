@@ -19,7 +19,7 @@ public class LoadingBar : MonoBehaviour
         clock = FindObjectOfType<Clock>();
         loadingbar_image.fillAmount = 0;
     }
-
+    
     // Update is called once per frame
     void Update()
     {
