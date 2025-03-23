@@ -6,6 +6,8 @@ public class TP : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform Target;
+    private bool canTeleport = false;
+
     void Start()
     {
         
@@ -14,15 +16,34 @@ public class TP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (canTeleport && Input.GetKeyDown(KeyCode.F))
         {
-            transform.position = new Vector3(100, 100, 100);
-            Debug.Log("isWorking");
+            if (Target != null)
+            {
+                transform.position = Target.position;
+            }
+            else
+            {
+                Debug.LogWarning("no Target");
+            }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-       
+        if (other.CompareTag("Player"))
+        {
+            canTeleport = true;
+            Debug.Log("F tp");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            canTeleport = false;
+            Debug.Log("out range");
+        }
     }
 }
