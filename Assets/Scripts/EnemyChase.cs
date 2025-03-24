@@ -5,19 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class EnemyChase : MonoBehaviour
 {
-    public Transform player;
     public float speed = 2f;
     public float stopDistance = 0.5f;
 
-    private void Start()
+    private Transform player;
+
+    void Start()
     {
-        if (player == null)
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
         {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
+            player = playerObj.transform;
         }
     }
 
-    private void Update()
+    void Update()
     {
         if (player != null)
         {
@@ -25,28 +27,31 @@ public class EnemyChase : MonoBehaviour
         }
     }
 
-    private void ChasePlayer()
+    void ChasePlayer()
     {
-        float direction = Mathf.Sign(player.position.x - transform.position.x);
-        float distance = Mathf.Abs(player.position.x - transform.position.x);
+        float distance = Vector3.Distance(transform.position, player.position);
 
         if (distance > stopDistance)
         {
-            transform.position += new Vector3(direction * speed * Time.deltaTime, 0, 0);
-        }
+            Vector3 direction = (player.position - transform.position).normalized;
+            transform.position += direction * speed * Time.deltaTime;
 
-        Vector3 lookDirection = new Vector3(player.position.x, transform.position.y, player.position.z) - transform.position;
-        if (lookDirection != Vector3.zero)
-        {
-            transform.rotation = Quaternion.LookRotation(lookDirection, Vector3.up);
+            if (direction != Vector3.zero)
+            {
+                transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+            }
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) 
+        if (other.CompareTag("Player"))
         {
             SceneManager.LoadScene("SampleScene");
+        }
+        else if (other.CompareTag("Projectile"))
+        {
+            Destroy(gameObject);
         }
     }
 }

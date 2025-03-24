@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class TopDownCharacterController : MonoBehaviour
 {
-    public GameObject projectilePrefab; 
-    public Transform firePoint;
+    public GameObject projectilePrefab;
+    public Transform firePoint; 
     public float moveSpeed = 5f;
     public float projectileSpeed = 10f;
 
-    private Vector3 moveDirection = Vector3.right;
     private Rigidbody rb;
 
     void Start()
@@ -19,6 +18,7 @@ public class TopDownCharacterController : MonoBehaviour
     {
         HandleMovement();
         HandleShooting();
+        FaceMouse();
     }
 
     void HandleMovement()
@@ -31,15 +31,27 @@ public class TopDownCharacterController : MonoBehaviour
         if (movement != Vector3.zero)
         {
             transform.position += movement * moveSpeed * Time.deltaTime;
-            transform.rotation = Quaternion.LookRotation(movement); // facing the move direction
-            moveDirection = movement;  // change the shooting direction
         }
     }
 
+    void FaceMouse()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+
+        if (groundPlane.Raycast(ray, out float enter))
+        {
+            Vector3 hitPoint = ray.GetPoint(enter);
+            Vector3 lookDir = (hitPoint - transform.position).normalized;
+            lookDir.y = 0f;
+
+            transform.rotation = Quaternion.LookRotation(lookDir);
+        }
+    }
 
     void HandleShooting()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) 
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             ShootProjectile();
         }
@@ -47,8 +59,24 @@ public class TopDownCharacterController : MonoBehaviour
 
     void ShootProjectile()
     {
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.LookRotation(moveDirection));
-        Rigidbody rb = projectile.GetComponent<Rigidbody>();
-        rb.velocity = moveDirection * projectileSpeed;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+
+        if (groundPlane.Raycast(ray, out float enter))
+        {
+            Vector3 hitPoint = ray.GetPoint(enter);
+            Vector3 shootDir = (hitPoint - firePoint.position);
+            shootDir.y = 0f; 
+            shootDir = shootDir.normalized;
+
+            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.LookRotation(shootDir));
+            Rigidbody rb = projectile.GetComponent<Rigidbody>();
+
+            rb.useGravity = false;
+            rb.drag = 0f; 
+            rb.velocity = shootDir * projectileSpeed;
+
+            Destroy(projectile, 2f);
+        }
     }
 }
