@@ -2,10 +2,7 @@ using UnityEngine;
 
 public class TopDownCharacterController : MonoBehaviour
 {
-    public GameObject projectilePrefab;
-    public Transform firePoint; 
     public float moveSpeed = 5f;
-    public float projectileSpeed = 10f;
 
     private Rigidbody rb;
 
@@ -17,7 +14,6 @@ public class TopDownCharacterController : MonoBehaviour
     void Update()
     {
         HandleMovement();
-        HandleShooting();
         FaceMouse();
     }
 
@@ -46,37 +42,6 @@ public class TopDownCharacterController : MonoBehaviour
             lookDir.y = 0f;
 
             transform.rotation = Quaternion.LookRotation(lookDir);
-        }
-    }
-
-    void HandleShooting()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
-        {
-            ShootProjectile();
-        }
-    }
-
-    void ShootProjectile()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-
-        if (groundPlane.Raycast(ray, out float enter))
-        {
-            Vector3 hitPoint = ray.GetPoint(enter);
-            Vector3 shootDir = (hitPoint - firePoint.position);
-            shootDir.y = 0f; 
-            shootDir = shootDir.normalized;
-
-            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.LookRotation(shootDir));
-            Rigidbody rb = projectile.GetComponent<Rigidbody>();
-
-            rb.useGravity = false;
-            rb.drag = 0f; 
-            rb.velocity = shootDir * projectileSpeed;
-
-            Destroy(projectile, 2f);
         }
     }
 }

@@ -92064,6 +92064,29 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1610708400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8065855267266002402, guid: f11d08c4d5c17d849af194d672f817c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1472954391402385386}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1610708401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610708400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52cf9d8d2a6160a48865b6bab9424aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1582145282659610897, guid: baded4b1e188cdf44b0d1128074af366,
+    type: 3}
+  firePoint: {fileID: 838752307}
+  fireRate: 0.1
+  projectileForce: 20
 --- !u!43 &1619028999
 Mesh:
   m_ObjectHideFlags: 0
@@ -122676,7 +122699,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8065855267266002402, guid: f11d08c4d5c17d849af194d672f817c4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1610708401}
   m_SourcePrefab: {fileID: 100100000, guid: f11d08c4d5c17d849af194d672f817c4, type: 3}
 --- !u!1001 &2598461721474488036
 PrefabInstance:
