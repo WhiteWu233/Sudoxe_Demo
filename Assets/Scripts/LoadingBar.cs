@@ -23,9 +23,8 @@ public class LoadingBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (manager.isLoading)// if the player press F, the loading bar start loading, timer stop, the 
+        if (manager.isLoading)// if the player press F, the loading bar start loading, timer stop, hint text disable
         {
-
             manager.hintText.gameObject.SetActive(false);
             loadingBar_text.gameObject.SetActive(true);
             loadingbar_image.fillAmount += 0.005f;
@@ -36,8 +35,10 @@ public class LoadingBar : MonoBehaviour
         if (loadingbar_image.fillAmount == 1)
         {
             clock.hourAdvanced();
-            
+            manager.canInteract = false;
             manager.isLoading = false;
+            
+           
 
         }
 
