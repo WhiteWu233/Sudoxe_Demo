@@ -12,6 +12,7 @@ public class Clock : MonoBehaviour
     public int year = 2024;
     public int hour = 8; // initial hour set to 8
     public int minutes = 0;
+    public int daystring = 1;
     public bool check = false;
     public TextMeshProUGUI time;
     public float timeSpeed;
@@ -45,6 +46,7 @@ public class Clock : MonoBehaviour
             dayCheck();
             monthCheck();
             yearCheck();
+            dayString();
             minutes = (int)timeSpend;
 
             yield return new WaitForSeconds(0f);
@@ -64,7 +66,7 @@ public class Clock : MonoBehaviour
 
     void dayCheck()
     {
-        if (hour == 24)
+        if (hour == 20)// after 8pm, jump to next day
         {
             day++;
             hour = 8;
@@ -89,8 +91,28 @@ public class Clock : MonoBehaviour
         }
     }
 
-    public void hourAdvanced() // for the class system
+    public void dayAdvanced()
+    {
+        day++;
+        daystring++;
+
+    }
+
+    public void hourAdvanced()
     {
         hour++;
     }
+
+
+    public void dayString() // check for monday, tuesday..
+    {
+        if (daystring > 7)
+        {
+            daystring = 1;
+        }
+
+    }
+
+
+
 }

@@ -9,15 +9,29 @@ public class ScheduleUI : MonoBehaviour
 
     void Start()
     {
-        logoButton.onClick.AddListener(ToggleSchedule);
-        schedulePanel.SetActive(false);
+        logoButton.onClick.AddListener(ButtonOnClick);
+        schedulePanel.SetActive(true);
         scheduleTablePanel.SetActive(false);
     }
 
-    void ToggleSchedule()
+    void update()
     {
-        bool isActive = !schedulePanel.activeSelf; 
-        schedulePanel.SetActive(isActive);
-        scheduleTablePanel.SetActive(isActive);
+       
+    }
+
+    void ButtonOnClick()
+    {
+        if (scheduleTablePanel.activeInHierarchy)
+        {
+            scheduleTablePanel.SetActive(false);
+            schedulePanel.SetActive(false);
+        }
+
+        else
+        {
+            scheduleTablePanel.SetActive(true);
+            schedulePanel.SetActive(true);
+        }
+
     }
 }
