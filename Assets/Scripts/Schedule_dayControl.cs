@@ -20,12 +20,13 @@ public class Schedule_dayControl : MonoBehaviour
     {
         if (clock.daystring == 1)
         {
-            //GetComponent<Schedule_Day2>().enabled = false;
+            GetComponent<Schedule_Day2>().enabled = false;
         }
 
         if (clock.daystring == 2)
         {
-           
+            GetComponent<Schedule_Manager>().enabled = false;
+            GetComponent<Schedule_Day2>().enabled = true;
         }
 
 

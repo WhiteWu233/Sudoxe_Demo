@@ -57,7 +57,7 @@ public class Clock : MonoBehaviour
 
     void hourCheck()
     {
-        if ((int)timeSpend == 60)
+        if ((int)timeSpend >= 60)
         {
             hour++;
             timeSpend = 0;
@@ -69,6 +69,7 @@ public class Clock : MonoBehaviour
         if (hour == 20)// after 8pm, jump to next day
         {
             day++;
+            daystring++;
             hour = 8;
         }
     }
@@ -91,12 +92,7 @@ public class Clock : MonoBehaviour
         }
     }
 
-    public void dayAdvanced()
-    {
-        day++;
-        daystring++;
-
-    }
+   
 
     public void hourAdvanced()
     {
