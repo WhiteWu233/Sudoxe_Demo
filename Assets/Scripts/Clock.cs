@@ -6,13 +6,13 @@ using UnityEngine.AI;
 
 public class Clock : MonoBehaviour
 {
-    private float timeSpend = 0;
+    static float timeSpend = 0;
     public int day = 4;
     public int month = 1;
     public int year = 2024;
     public int hour = 8; // initial hour set to 8
     public int minutes = 0;
-    public int daystring = 1;
+    public int daystring;
     public bool check = false;
     public TextMeshProUGUI time;
     public float timeSpeed;
@@ -22,6 +22,7 @@ public class Clock : MonoBehaviour
     {
         manager = FindObjectOfType<InteractionManager>();
         StartCoroutine(Timer());
+        
     }
 
     // Update is called once per frame

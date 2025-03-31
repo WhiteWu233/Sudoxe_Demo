@@ -5,13 +5,14 @@ using UnityEngine;
 public class Schedule_dayControl : MonoBehaviour
 {
     private Clock clock;
-
+    public GameObject Day1;
+    public GameObject Day2;
     
     // Start is called before the first frame update
     void Start()
     {
         clock = FindObjectOfType<Clock>();
-  
+        
 
     }
 
@@ -21,12 +22,16 @@ public class Schedule_dayControl : MonoBehaviour
         if (clock.daystring == 1)
         {
             GetComponent<Schedule_Day2>().enabled = false;
+            Day2.SetActive(false);
         }
 
         if (clock.daystring == 2)
         {
+            Day1.SetActive(false);
+            Day2.SetActive(true);
             GetComponent<Schedule_Manager>().enabled = false;
             GetComponent<Schedule_Day2>().enabled = true;
+
         }
 
 

@@ -28,6 +28,6 @@ public class Maze_trigger01 : MonoBehaviour
 
     public void loadMaze01()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }
