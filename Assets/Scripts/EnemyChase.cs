@@ -7,6 +7,7 @@ public class EnemyChase : MonoBehaviour
 {
     public float speed = 2f;
     public float stopDistance = 0.5f;
+    public int scoreValue = 10;
 
     private Transform player;
 
@@ -51,6 +52,7 @@ public class EnemyChase : MonoBehaviour
         }
         else if (other.CompareTag("Projectile"))
         {
+            ScoreManager.Instance.AddScore(scoreValue);
             Destroy(gameObject);
         }
     }
