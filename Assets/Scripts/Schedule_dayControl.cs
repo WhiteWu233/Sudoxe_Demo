@@ -17,6 +17,7 @@ public class Schedule_dayControl : MonoBehaviour
     }
 
     // Update is called once per frame
+    // daystring control the daily schedule and weekly quiz system, add a 2week/month string to control the exam system
     void Update()
     {
         if (clock.daystring == 1)

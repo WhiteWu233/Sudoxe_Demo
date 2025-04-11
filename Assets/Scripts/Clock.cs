@@ -13,6 +13,7 @@ public class Clock : MonoBehaviour
     public int hour = 8; // initial hour set to 8
     public int minutes = 0;
     public int daystring;
+    public int daycount;
     public bool check = false;
     public TextMeshProUGUI time;
     public float timeSpeed;
@@ -44,7 +45,7 @@ public class Clock : MonoBehaviour
         {
             timeSpend += Time.deltaTime * timeSpeed;
             hourCheck();
-            dayCheck();
+            //dayCheck();
             monthCheck();
             yearCheck();
             dayString();
@@ -65,15 +66,13 @@ public class Clock : MonoBehaviour
         }
     }
 
-    void dayCheck()
+    /*void dayCheck()
     {
-        if (hour == 20)// after 8pm, jump to next day
-        {
-            day++;
-            daystring++;
-            hour = 8;
-        }
-    }
+       
+       
+        hour = 8;
+        
+    }*/
 
     void monthCheck()
     {
@@ -93,7 +92,14 @@ public class Clock : MonoBehaviour
         }
     }
 
-   
+    public void dayAdvanced() // once finish class, jump to next day
+    {
+        day++;
+        daycount++;
+        daystring++;
+        hour = 8;
+    }
+
 
     public void hourAdvanced()
     {
@@ -109,6 +115,12 @@ public class Clock : MonoBehaviour
         }
 
     }
+
+    public void weeklyString()
+    {
+        daycount++;
+    }
+
 
 
 
