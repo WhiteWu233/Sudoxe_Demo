@@ -7,7 +7,9 @@ public class Schedule_dayControl : MonoBehaviour
     private Clock clock;
     public GameObject Day1;
     public GameObject Day2;
-    
+    public GameObject Day3;
+    public GameObject Day4;
+    public GameObject Day5;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,15 +25,36 @@ public class Schedule_dayControl : MonoBehaviour
         if (clock.daystring == 1)
         {
             GetComponent<Schedule_Day2>().enabled = false;
+            GetComponent<Schedule_Day3>().enabled = false;
             Day2.SetActive(false);
+            Day3.SetActive(false);
+            Day4.SetActive(false);
+            Day5.SetActive(false);
         }
 
         if (clock.daystring == 2)
         {
             Day1.SetActive(false);
+            Day3.SetActive(false);
+            Day4.SetActive(false);
+            Day5.SetActive(false);
             Day2.SetActive(true);
             GetComponent<Schedule_Manager>().enabled = false;
             GetComponent<Schedule_Day2>().enabled = true;
+            GetComponent<Schedule_Day3>().enabled = false;
+
+        }
+
+        if (clock.daystring == 3)
+        {
+            Day1.SetActive(false);
+            Day2.SetActive(false);
+            Day3.SetActive(true);
+            Day4.SetActive(false);
+            Day5.SetActive(false);
+            GetComponent<Schedule_Manager>().enabled = false;
+            GetComponent<Schedule_Day2>().enabled = false;
+            GetComponent<Schedule_Day3>().enabled = true;
 
         }
 

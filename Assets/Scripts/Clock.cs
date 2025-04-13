@@ -12,7 +12,8 @@ public class Clock : MonoBehaviour
     public int year = 2024;
     public int hour = 8; // initial hour set to 8
     public int minutes = 0;
-    public int daystring;
+    public int daystring = 1;
+    public int testString = 1;
     public int daycount;
     public bool check = false;
     public TextMeshProUGUI time;
@@ -97,6 +98,7 @@ public class Clock : MonoBehaviour
         day++;
         daycount++;
         daystring++;
+        testString++;
         hour = 8;
     }
 

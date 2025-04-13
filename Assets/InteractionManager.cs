@@ -44,7 +44,7 @@ public class InteractionManager : MonoBehaviour
         timeSum = clock.hour * 60 + clock.minutes;
         classroom_access(); // check for class time
         schedule_minues();
-
+        Debug.Log(clock.testString % 8);
        
        
         if (canInteract)
@@ -54,23 +54,33 @@ public class InteractionManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 //add a if (daystring == 7) here, if true, not is loading but is taking test, teleport to the classroom scene and start taking quiz/exam
-                isLoading = true;
-                classCredit += 1;
+                if (!canTest)
+                {
+                    isLoading = true;
+                    classCredit += 1;
+                    //if 
 
+                }
+
+                if (canTest)
+                {
+                    SceneManager.LoadScene(3);
+                }
+               
             }
 
-            hintText.gameObject.SetActive(true);  // ????????????
+            hintText.gameObject.SetActive(true);  
 
         }
 
-        if (canTest)
+        if (clock.testString % 8 == 0)
         {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
+            canTest = true;
+        }
 
-                SceneManager.LoadScene(3);
-
-            }
+        if (clock.testString % 8 > 0)
+        {
+            canTest = false;
         }
 
         else
@@ -96,7 +106,7 @@ public class InteractionManager : MonoBehaviour
             {
                 if (trigger.isEntered_classroom01)// check is player entered classroom01 collider box
                 {
-
+                    
                     canInteract = true; // can take class01
 
                 }
@@ -313,4 +323,6 @@ public class InteractionManager : MonoBehaviour
 
        
     }
+
+
 }

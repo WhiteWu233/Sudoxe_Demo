@@ -23,7 +23,7 @@ public class Schedule_Day2 : MonoBehaviour
         Day2classTime03 = new Vector3(17, 0, 3);
 
         Day2class01.text = "Class01 in classroom01 at 10:00am";
-        Day2class02.text = "Class02 in classroom02 at 111:00pm";
+        Day2class02.text = "Class02 in classroom02 at 1:00pm";
         Day2class03.text = "Class03 in classroom03 at 8:00pm";
 
         Day2_classTimeSum01 = Day2classTime01.x * 60 + Day2classTime01.y; // calculate class time sum of class01
