@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   stopDistance: 0.5
-  scoreValue: 0
+  scoreValue: 5
 --- !u!54 &3963199623692230746
 Rigidbody:
   m_ObjectHideFlags: 0

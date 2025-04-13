@@ -11,7 +11,7 @@ public class Classroom_countdown : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        countdownTime = 120;
+        countdownTime = 10;
         
     }
 

@@ -33,10 +33,9 @@ public class Clock : MonoBehaviour
  
         time.text = $"{year:D2}/{month:D2}/{day:D2} {hour:D2}:{minutes:D2}";
 
-        if (manager.isLoading)
-        {
+       
             StopCoroutine(Timer());
-        }
+        
 
     }
 
