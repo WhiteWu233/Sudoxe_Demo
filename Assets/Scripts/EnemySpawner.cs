@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public float spawnInterval = 2f;
-    public int totalEnemies = 10;
+    public int totalEnemies = 5;
 
     private int enemiesSpawned = 0;
     private float timer = 0f;

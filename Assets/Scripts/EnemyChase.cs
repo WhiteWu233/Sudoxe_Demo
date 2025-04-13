@@ -7,7 +7,7 @@ public class EnemyChase : MonoBehaviour
 {
     public float speed = 2f;
     public float stopDistance = 0.5f;
-    public int scoreValue = 10;
+    public int scoreValue = 5;
 
     private Transform player;
 
