@@ -44,7 +44,6 @@ public class InteractionManager : MonoBehaviour
         timeSum = clock.hour * 60 + clock.minutes;
         classroom_access(); // check for class time
         schedule_minues();
-        Debug.Log(clock.testString % 8);
        
        
         if (canInteract)

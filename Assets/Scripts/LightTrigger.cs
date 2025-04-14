@@ -10,6 +10,7 @@ public class LightTrigger : MonoBehaviour
     public GameObject pressEText;
     public Transform cameraTransform;
     public Transform playerTransform;
+    public static int count;
     public float rotationDuration = 2f;  // 摄像机旋转持续时间
     private bool isPlayerInRange = false;
     private bool isTriggered = false;          // press E UI
@@ -17,6 +18,7 @@ public class LightTrigger : MonoBehaviour
 
     private void Start()
     {
+        
         // hide press e
         if (pressEText != null)
         {
@@ -88,7 +90,10 @@ public class LightTrigger : MonoBehaviour
     // coroutine: back to sample scene 
     private IEnumerator ReturnToSampleScene()
     {
+
         yield return new WaitForSeconds(2.0f);
         SceneManager.LoadScene(0);
     }
+
+   
 }

@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class Clock : MonoBehaviour
 {
     static float timeSpend = 0;
+
     public int day = 4;
     public int month = 1;
     public int year = 2024;
@@ -22,6 +23,7 @@ public class Clock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         manager = FindObjectOfType<InteractionManager>();
         StartCoroutine(Timer());
         
