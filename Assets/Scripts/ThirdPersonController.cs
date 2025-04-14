@@ -11,6 +11,7 @@ public class ThirdPersonController : MonoBehaviour
 
     private CharacterController controller;
     private Vector3 input, moveDirection;
+    private Animator animator;
 
     // Audio components
     public AudioClip runSound;
@@ -22,7 +23,7 @@ public class ThirdPersonController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-
+        animator = GetComponent<Animator>();
         // Initialize AudioSource
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.loop = false; // Jump sound should not loop
@@ -56,6 +57,7 @@ public class ThirdPersonController : MonoBehaviour
             // Running sound logic
             if (input.magnitude > 0.1f)
             {
+                animator.SetBool("IsWalking", true);
                 // If moving and the running sound is not playing
                 if (!isPlayingRunSound)
                 {
@@ -67,6 +69,7 @@ public class ThirdPersonController : MonoBehaviour
             }
             else
             {
+                animator.SetBool("IsWalking", false);
                 // Stop running sound if not moving
                 if (isPlayingRunSound)
                 {
