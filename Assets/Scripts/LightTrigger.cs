@@ -88,7 +88,7 @@ public class LightTrigger : MonoBehaviour
     // coroutine: back to sample scene 
     private IEnumerator ReturnToSampleScene()
     {
-        yield return new WaitForSeconds(returnDelay);
-        SceneManager.LoadScene("SampleScene");
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene(0);
     }
 }
