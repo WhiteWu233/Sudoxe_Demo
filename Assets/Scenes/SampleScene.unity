@@ -11097,7 +11097,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 0
-  m_Radius: 0
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -11121,12 +11121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4886f5f352a904980a388f50f7f331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpHeight: 1.5
+  moveSpeed: 7.5
+  jumpHeight: 2
   gravity: 9.81
   airControl: 10
-  runSound: {fileID: 0}
-  jumpSound: {fileID: 0}
+  runSound: {fileID: 8300000, guid: 849eed97452f6b9448ce68d150e37491, type: 3}
+  jumpSound: {fileID: 8300000, guid: b7fde00944e59434eb14f993469f4766, type: 3}
 --- !u!1 &188289619
 GameObject:
   m_ObjectHideFlags: 0
@@ -38194,7 +38194,7 @@ PrefabInstance:
     - target: {fileID: -3910990755373119420, guid: 2e42a5a8728161c4584c13832acd3fba,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.358
+      value: 3.524
       objectReference: {fileID: 0}
     - target: {fileID: -3910990755373119420, guid: 2e42a5a8728161c4584c13832acd3fba,
         type: 3}
@@ -38245,6 +38245,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: STUDENT_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771091787928289351, guid: 2e42a5a8728161c4584c13832acd3fba,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -82680,7 +82685,7 @@ GameObject:
   - component: {fileID: 1586907091}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
