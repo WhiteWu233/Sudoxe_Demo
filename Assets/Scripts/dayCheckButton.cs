@@ -9,11 +9,14 @@ public class dayCheckButton : MonoBehaviour
     public GameObject daycheck;
     public Button button;
     private Clock clock;
-
+    private InteractionManager interactionManager;
+    public Image gun;
     
     // Start is called before the first frame update
     void Start()
     {
+        gun.gameObject.SetActive(false);
+        interactionManager = FindObjectOfType<InteractionManager>();
         clock = FindObjectOfType<Clock>();
         button.onClick.AddListener(ButtonOnClick);
         
@@ -22,7 +25,10 @@ public class dayCheckButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-;      
+;      if (interactionManager.classCredit == 3)
+        {
+            gun.gameObject.SetActive(true);
+        }
     }
 
     void ButtonOnClick()
