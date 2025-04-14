@@ -134,6 +134,8 @@ public class Clock : MonoBehaviour
         
         PlayerPrefs.SetInt("Minutes", minutes);//store data for mintues
         PlayerPrefs.SetFloat("timeSpend", timeSpend);//store data for timespend
+        PlayerPrefs.SetInt("Hour", hour);//store data for hour
+        PlayerPrefs.SetInt("Day", day);//store data for days
         Debug.Log(minutes);
         
         /*PlayerPrefs.SetInt("Hour", hour); // store data for hour
@@ -146,6 +148,8 @@ public class Clock : MonoBehaviour
     {
         minutes = PlayerPrefs.GetInt("Minutes", 30);
         timeSpend = PlayerPrefs.GetFloat("timeSpend", 30);
+        hour = PlayerPrefs.GetInt("Hour", 5);
+        day = PlayerPrefs.GetInt("Day", 1);
         Debug.Log(minutes);
         Debug.Log(timeSpend);
     }

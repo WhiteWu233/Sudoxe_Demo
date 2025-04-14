@@ -21,10 +21,21 @@ public class Maze_trigger01 : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.P))
         {
             PlayerPrefs.DeleteKey("Count");
+            PlayerPrefs.DeleteKey("Minutes");
+            
             Debug.Log("Delete!");
         }
 
-        
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            PlayerPrefs.DeleteAll();
+
+            Debug.Log("Delete ALL!");
+        }
+
+
+
+
     }
 
     private void OnTriggerEnter(Collider other)

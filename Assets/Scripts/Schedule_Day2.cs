@@ -18,9 +18,9 @@ public class Schedule_Day2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Day2classTime01 = new Vector3(9, 0, 1); // first class at 9 am, in classroom01, the third vector is the 
-        Day2classTime02 = new Vector3(13, 0, 2);
-        Day2classTime03 = new Vector3(17, 0, 3);
+        Day2classTime01 = new Vector3(10, 0, 1); // first class at 9 am, in classroom01, the third vector is the 
+        Day2classTime02 = new Vector3(15, 0, 2);
+        Day2classTime03 = new Vector3(19, 0, 3);
 
         Day2class01.text = "Class01 in classroom01 at 10:00am";
         Day2class02.text = "Class02 in classroom02 at 1:00pm";

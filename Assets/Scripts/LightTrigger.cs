@@ -11,14 +11,15 @@ public class LightTrigger : MonoBehaviour
     public Transform cameraTransform;
     public Transform playerTransform;
     public static int count;
-    public float rotationDuration = 2f;  // 摄像机旋转持续时间
+    public float rotationDuration = 2f;  // ??????????????????
     private bool isPlayerInRange = false;
     private bool isTriggered = false;          // press E UI
     public float returnDelay = 10f; // return sample scene delay
+    private Clock clock;
 
     private void Start()
     {
-        
+        clock = FindObjectOfType<Clock>();
         // hide press e
         if (pressEText != null)
         {
@@ -90,7 +91,8 @@ public class LightTrigger : MonoBehaviour
     // coroutine: back to sample scene 
     private IEnumerator ReturnToSampleScene()
     {
-
+        clock.saveData();
+        clock.Load();
         yield return new WaitForSeconds(2.0f);
         SceneManager.LoadScene(0);
     }

@@ -20,11 +20,11 @@ public class Schedule_Manager : MonoBehaviour
     {
         clock = FindObjectOfType<Clock>();
         classTime01 = new Vector3(9, 0, 1); // first class at 9 am, in classroom01, the third vector is the 
-        classTime02 = new Vector3(13, 0, 2);
+        classTime02 = new Vector3(12, 0, 2);
         classTime03 = new Vector3(17, 0, 3);
 
         class01.text = "Class01 in classroom01 at 9:00am";
-        class02.text = "Class02 in classroom02 at 1:00pm";
+        class02.text = "Class02 in classroom02 at 12:00pm";
         class03.text = "Class03 in classroom03 at 5:00pm";
 
         classTimeSum01 = classTime01.x * 60 + classTime01.y; // calculate class time sum of class01
