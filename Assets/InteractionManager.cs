@@ -21,6 +21,7 @@ public class InteractionManager : MonoBehaviour
     public int classCredit;
     public TextMeshProUGUI classTaken;
 
+
     private void Start()
     {
         test = FindObjectOfType<testManager>();
@@ -41,7 +42,7 @@ public class InteractionManager : MonoBehaviour
     void Update()
     {
         classTaken.SetText(" " + classCredit);
-        timeSum = clock.hour * 60 + clock.minutes;
+        timeSum = clock.hour * 60 + clock.getMinutes();
         classroom_access(); // check for class time
         schedule_minues();
        

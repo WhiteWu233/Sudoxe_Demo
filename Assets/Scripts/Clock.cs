@@ -6,13 +6,13 @@ using UnityEngine.AI;
 
 public class Clock : MonoBehaviour
 {
-    static float timeSpend = 0;
+    float timeSpend = 0;
 
     public int day = 4;
     public int month = 1;
     public int year = 2024;
     public int hour = 8; // initial hour set to 8
-    public int minutes = 0;
+    public static int minutes = 0;
     public int daystring = 1;
     public int testString = 1;
     public int daycount;
@@ -32,7 +32,7 @@ public class Clock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
+        //Debug.Log(minutes);
         time.text = $"{year:D2}/{month:D2}/{day:D2} {hour:D2}:{minutes:D2}";
 
        
@@ -124,7 +124,31 @@ public class Clock : MonoBehaviour
         daycount++;
     }
 
+    public int getMinutes()
+    {
+        return minutes;
+    }
 
+    public void saveData()
+    {
+        
+        PlayerPrefs.SetInt("Minutes", minutes);//store data for mintues
+        PlayerPrefs.SetFloat("timeSpend", timeSpend);//store data for timespend
+        Debug.Log(minutes);
+        
+        /*PlayerPrefs.SetInt("Hour", hour); // store data for hour
+        PlayerPrefs.SetInt("Day", day);//store data for mintues
+        PlayerPrefs.SetInt("Month", month); // store data for hour*/
+
+    }
+
+    public void Load()
+    {
+        minutes = PlayerPrefs.GetInt("Minutes", 30);
+        timeSpend = PlayerPrefs.GetFloat("timeSpend", 30);
+        Debug.Log(minutes);
+        Debug.Log(timeSpend);
+    }
 
 
 }

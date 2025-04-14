@@ -7,11 +7,12 @@ using UnityEngine.SceneManagement;
 public class Maze_trigger01 : MonoBehaviour
 {
     private int ran;
-
+    private Clock clock;
     // Start is called before the first frame update
     void Start()
     {
         ran = 0;
+        clock = FindObjectOfType<Clock>();
     }
 
     // Update is called once per frame
@@ -22,6 +23,7 @@ public class Maze_trigger01 : MonoBehaviour
             PlayerPrefs.DeleteKey("Count");
             Debug.Log("Delete!");
         }
+
         
     }
 
@@ -37,8 +39,9 @@ public class Maze_trigger01 : MonoBehaviour
             {
 
                 onCount();
+                clock.saveData();
                 loadMaze01();
-                
+               
             }
             
         }
