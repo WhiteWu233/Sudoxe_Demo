@@ -100,7 +100,7 @@ public class Clock : MonoBehaviour
         daycount++;
         daystring++;
         testString++;
-        hour = 8;
+        hour = 7;
     }
 
 
@@ -146,10 +146,10 @@ public class Clock : MonoBehaviour
 
     public void Load()
     {
-        minutes = PlayerPrefs.GetInt("Minutes", 30);
-        timeSpend = PlayerPrefs.GetFloat("timeSpend", 30);
-        hour = PlayerPrefs.GetInt("Hour", 5);
-        day = PlayerPrefs.GetInt("Day", 1);
+        minutes = PlayerPrefs.GetInt("Minutes", 0);
+        timeSpend = PlayerPrefs.GetFloat("timeSpend", 0);
+        hour = PlayerPrefs.GetInt("Hour", 7);
+        day = PlayerPrefs.GetInt("Day", 4);
         Debug.Log(minutes);
         Debug.Log(timeSpend);
     }
