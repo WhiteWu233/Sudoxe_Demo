@@ -17,7 +17,12 @@ public class Maze_trigger01 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            PlayerPrefs.DeleteKey("Count");
+            Debug.Log("Delete!");
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -41,7 +46,7 @@ public class Maze_trigger01 : MonoBehaviour
 
     public void loadMaze01()
     {
-        int mazeCount = PlayerPrefs.GetInt("Count");
+        int mazeCount = PlayerPrefs.GetInt("Count",2);
         SceneManager.LoadScene(mazeCount);
         Debug.Log(mazeCount);
     }
