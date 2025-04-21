@@ -12,9 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/sample maze.unity
     guid: d71763461d3f20f41a0b859edb6c7285
   - enabled: 1
+    path: Assets/Scenes/classroom.unity
+    guid: d8f04b17dacfeaa4a96284f451f1f667
+  - enabled: 1
     path: Assets/Scenes/jump 1.unity
     guid: e0f0ca76dd490b74680759fe2ee3b6ac
   - enabled: 1
-    path: Assets/Scenes/classroom.unity
-    guid: d8f04b17dacfeaa4a96284f451f1f667
+    path: Assets/Scenes/jump2.unity
+    guid: 27175a665af631d429d24e8ab29a9d85
+  - enabled: 1
+    path: Assets/Scenes/jump3.unity
+    guid: 6361faa7e3831f046aed740e7d04160e
   m_configObjects: {}

@@ -21,6 +21,7 @@ public class InteractionManager : MonoBehaviour
     public int classCredit;
     public TextMeshProUGUI classTaken;
 
+
     private void Start()
     {
         test = FindObjectOfType<testManager>();
@@ -40,11 +41,11 @@ public class InteractionManager : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Minues" + clock.testString % 2);
         classTaken.SetText(" " + classCredit);
-        timeSum = clock.hour * 60 + clock.minutes;
+        timeSum = clock.hour * 60 + clock.getMinutes();
         classroom_access(); // check for class time
         schedule_minues();
-        Debug.Log(clock.testString % 8);
        
        
         if (canInteract)
@@ -58,13 +59,12 @@ public class InteractionManager : MonoBehaviour
                 {
                     isLoading = true;
                     classCredit += 1;
-                    //if 
-
+                    
                 }
 
                 if (canTest)
                 {
-                    SceneManager.LoadScene(3);
+                    SceneManager.LoadScene(2);
                 }
                
             }
@@ -73,15 +73,15 @@ public class InteractionManager : MonoBehaviour
 
         }
 
-        if (clock.testString % 8 == 0)
+        /*if (clock.testString % 2 <= 0)
         {
             canTest = true;
         }
 
-        if (clock.testString % 8 > 0)
+        if (clock.testString % 8 >= 1)
         {
             canTest = false;
-        }
+        }*/
 
         else
         {
@@ -119,6 +119,7 @@ public class InteractionManager : MonoBehaviour
                 if (trigger02.isEntered_classroom02)// check is player entered classroom02 collider box
                 {
                     canInteract = true; // can take class02
+                    
 
                 }
 
@@ -142,6 +143,7 @@ public class InteractionManager : MonoBehaviour
 
         if (clock.daystring == 2)
         {
+            canTest = true;
             if (Mathf.Abs(timeSum - schedule_day2.Day2_classTimeSum01) <= 15) // check for classroom01 time, if the time is in the 15 mintues range, enable classroom enter
 
             {
@@ -275,7 +277,7 @@ public class InteractionManager : MonoBehaviour
             if (trigger.isEntered_classroom01)// check is player entered classroom01 collider box
             {
 
-                canTest = true; // taking the exam
+             
 
             }
         }
